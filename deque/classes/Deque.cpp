@@ -19,6 +19,8 @@ void Deque::insertFirst(int number) {
         this->startNode = node;
         node->setPreviousNode(nullptr);
     }
+
+    this->size++;
 }
 
 void Deque::insertLast(int number) {
@@ -32,6 +34,8 @@ void Deque::insertLast(int number) {
         node->setNextNode(nullptr);
         this->endNode = node;
     }
+
+    this->size++;
 }
 
 void Deque::removeFirst() {
@@ -43,6 +47,19 @@ void Deque::removeFirst() {
         this->startNode->setPreviousNode(nullptr);
         delete currentFirstNode;
     }
+    this->size--;
+}
+
+void Deque::removeLast() {
+    if (this->isEmpty()) {
+        cout << "Deque is empty" << endl;
+    } else {
+        Node* currentLastNode = this->endNode;
+        this->endNode = this->endNode->getPreviousNode();
+        this->endNode->setNextNode(nullptr);
+        delete currentLastNode;
+    }
+    this->size--;
 }
 
 void Deque::printDeque() {
@@ -51,4 +68,26 @@ void Deque::printDeque() {
         cout << currentNode->getNumber() << endl;
         currentNode = currentNode->getNextNode();
     }
+}
+
+int Deque::first() {
+    if (this->isEmpty()) {
+        cout << "Deque is empty" << endl;
+        return -1;
+    } else {
+        return this->startNode->getNumber();
+    }
+}
+
+int Deque::last() {
+    if (this->isEmpty()) {
+        cout << "Deque is empty" << endl;
+        return -1;
+    } else {
+        return this->endNode->getNumber();
+    }
+}
+
+unsigned int Deque::getSize() {
+    return this->size;
 }
