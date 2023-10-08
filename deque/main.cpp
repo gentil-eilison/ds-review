@@ -30,5 +30,14 @@ int main() {
     cout << "--------- Size --------" << endl;
     cout << deque->getSize() << endl;
 
+    // deque->insertLast(1);
+    // deque->insertLast(2);
+    // deque->insertLast(3);
+    // deque->insertLast(4);
+    // deque->insertLast(3);
+    // deque->insertLast(2);
+    // deque->insertLast(1);
+    // cout << deque->isSymmetric() << endl;
+
     return 0;
 }

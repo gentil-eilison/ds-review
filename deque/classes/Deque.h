@@ -18,4 +18,5 @@ class Deque {
         int last();
         bool isEmpty();
         void printDeque();
+        bool isSymmetric();
 };

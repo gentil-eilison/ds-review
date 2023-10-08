@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "Deque.h"
 #include "Node.h"
 
@@ -90,4 +91,21 @@ int Deque::last() {
 
 unsigned int Deque::getSize() {
     return this->size;
+}
+
+bool Deque::isSymmetric() {
+    float halfSize = floor(this->size / 2.0);
+    Node* frontSideElement = this->startNode;
+    Node* backSideElement = this->endNode;
+    float elementsComparedCount = 0;
+
+    while(elementsComparedCount < halfSize) {
+        if (frontSideElement->getNumber() != backSideElement->getNumber()) {
+            return false;
+        }
+        frontSideElement = frontSideElement->getNextNode();
+        backSideElement = backSideElement->getPreviousNode();
+        elementsComparedCount++;
+    }
+    return true;
 }
