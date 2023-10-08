@@ -15,6 +15,7 @@ void Queue::push(int number) {
         node->setNextNode(nullptr);
         this->lastNode = node;
     }
+    this->size++;
 }
 
 void Queue::pop() {
@@ -25,6 +26,7 @@ void Queue::pop() {
         this->firstNode = this->firstNode->getNextNode();
         delete currentFirstNode; 
     }
+    this->size--;
 }
 
 void Queue::printQueue() {
